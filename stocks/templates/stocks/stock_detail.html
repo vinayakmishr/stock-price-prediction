@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ stock.name }} Details</title>
+</head>
+<body>
+    <h2>{{ stock.name }} ({{ stock.symbol }})</h2>
+    <h3>Historical Data</h3>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Open</th>
+            <th>Close</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Volume</th>
+        </tr>
+        {% for data in historical_data %}
+        <tr>
+            <td>{{ data.date }}</td>
+            <td>{{ data.open_price }}</td>
+            <td>{{ data.close_price }}</td>
+            <td>{{ data.high_price }}</td>
+            <td>{{ data.low_price }}</td>
+            <td>{{ data.volume }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Predicted Next Close Price: {{ predicted_price }}</h3>
+    <img src="data:image/png;base64,{{ chart }}" alt="Stock Prices Chart"/>
+</body>
+</html>
